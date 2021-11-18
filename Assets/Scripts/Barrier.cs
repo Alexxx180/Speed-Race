@@ -2,17 +2,19 @@
 
 public class Barrier : MonoBehaviour
 {
-    PlayerStats player;
+    public PlayerStats player;
 
     private void Awake()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        if (player == null)
+            player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
     }
 
-    public void OnTriggerEnter2D(collision2D collision)
+    public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
+            Debug.Log("BOOOM!");
             player.Hurt();
         }
     }
