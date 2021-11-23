@@ -118,7 +118,7 @@ MonoBehaviour:
   speed: 0.5
   sizeInc: 0.5
   moveInc: 2.4642856
-  rotateX: 1
+  rotateX: 0
 --- !u!114 &1801419644856629624
 MonoBehaviour:
   m_ObjectHideFlags: 0

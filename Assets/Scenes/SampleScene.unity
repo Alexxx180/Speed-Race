@@ -3352,9 +3352,9 @@ MonoBehaviour:
   - {fileID: 1488101074}
   - {fileID: 770515643}
   - {fileID: 1462203655}
-  minTime: 2000
-  maxTime: 10000
-  toTime: 10
+  minTime: 200
+  maxTime: 1000
+  toTime: 200
   time: 0
 --- !u!1 &1366354233
 GameObject:
