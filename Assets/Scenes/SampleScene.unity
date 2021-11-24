@@ -3352,7 +3352,7 @@ MonoBehaviour:
   - {fileID: 1488101074}
   - {fileID: 770515643}
   - {fileID: 1462203655}
-  minTime: 200
+  minTime: 500
   maxTime: 1000
   toTime: 200
   time: 0

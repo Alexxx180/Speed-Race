@@ -25,7 +25,6 @@ public class Barrier : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("BOOOM!");
             player.Hurt();
         }
     }
