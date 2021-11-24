@@ -13,25 +13,18 @@ public class BarierMoves : MonoBehaviour
     private Vector3 maxPosition = new Vector3(-380f, -385f, 0f);
     private Vector3 maxSize = new Vector3(1.5f, 1.5f, 1.5f);
 
-    public void Awake()
-    {
-        sizeInc *= speed;
-        moveInc *= speed;
-    }
 
     public void Update()
     {
         Vector3 mem = gameObject.transform.position;
         Vector3 size = gameObject.transform.localScale;
-        Debug.Log((moveInc * rotateX) * Time.deltaTime);
 
-        float x = mem.x + (moveInc * rotateX) * Time.deltaTime;
-        float y = mem.y - moveInc * 1.115942028985507f * Time.deltaTime;
-        float inc = size.x + sizeInc * Time.deltaTime;
+        float x = mem.x + (moveInc * rotateX) * Time.fixedDeltaTime * speed;
+        float y = mem.y - moveInc * 1.115942028985507f * Time.fixedDeltaTime * speed;
+        float inc = size.x + sizeInc * speed * Time.fixedDeltaTime;
+
         gameObject.transform.position = new Vector3(x, y, 0);
         gameObject.transform.localScale = new Vector3(inc, inc, inc);
-        Debug.Log(inc);
-        Debug.Log(maxSize.x);
         if (inc >= maxSize.x)
             Destroy(gameObject);
     }
