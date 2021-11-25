@@ -4,6 +4,7 @@ public class Barrier : MonoBehaviour
 {
     public PlayerStats player;
     public RandomAppearing moves;
+    public Leaders leaders;
 
     public void Awake()
     {
@@ -19,6 +20,7 @@ public class Barrier : MonoBehaviour
             return;
         }
         player = playerObject.GetComponent<PlayerStats>();
+        leaders = playerObject.GetComponent<Leaders>();
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
@@ -26,6 +28,7 @@ public class Barrier : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             player.Hurt();
+            leaders.SetFileRecords();
         }
     }
 }
