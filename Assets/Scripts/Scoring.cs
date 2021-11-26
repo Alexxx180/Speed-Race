@@ -18,7 +18,7 @@ public class Scoring : MonoBehaviour
     public void SetScore()
     {
         int scoreValue = Convert.ToInt32(GetScore());
-        score.text = "SCORE: " + (scoreValue + scoreIncrement);
+        score.text = "" + (scoreValue + scoreIncrement);
     }
 
     void FixedUpdate()

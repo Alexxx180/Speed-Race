@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Field
+  - Obstacle
+  - ShieldBonus
   layers:
   - Default
   - TransparentFX

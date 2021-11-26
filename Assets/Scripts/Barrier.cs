@@ -27,6 +27,7 @@ public class Barrier : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+
             player.Hurt();
             leaders.SetFileRecords();
         }

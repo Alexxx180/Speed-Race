@@ -11,6 +11,7 @@ public class Leaders : MonoBehaviour
 
     public Text playerName;
     public Text playerScore;
+
     const string fileName = @"D:\Aleksandr\Windows-7\misc\Games\Develop\Speed-Race\Assets\Resources\Records.txt";
     private List<string> ReadFromTextFile()
     {
@@ -57,17 +58,12 @@ public class Leaders : MonoBehaviour
 
     public void SetFileRecords()
     {
-        WriteTextFile(playerName.text, Ints(ScoreTrim(playerScore.text)));
+        WriteTextFile(playerName.text, Ints(playerScore.text));
     }
 
     private int Ints(object ob)
     {
         return Convert.ToInt32(ob);
-    }
-
-    private string ScoreTrim(string record)
-    {
-        return record.Substring(record.LastIndexOf(" ") + 1);
     }
 
     private string ScoreTrim2(string record)
@@ -140,6 +136,6 @@ public class Leaders : MonoBehaviour
         {
             throw exp;
         }
-        playerScore.text = "SCORE: 0";
+        playerScore.text = "0";
     }
 }
