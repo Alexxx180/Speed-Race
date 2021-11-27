@@ -6,7 +6,7 @@ public class Barrier : MonoBehaviour
     public RandomAppearing moves;
     public Leaders leaders;
 
-    public void Awake()
+    public void Start()
     {
         if (player != null)
             return;
@@ -20,7 +20,8 @@ public class Barrier : MonoBehaviour
             return;
         }
         player = playerObject.GetComponent<PlayerStats>();
-        leaders = playerObject.GetComponent<Leaders>();
+        GameObject players = playerObject.transform.parent.gameObject;
+        leaders = players.GetComponent<Leaders>();
     }
 
     public void OnTriggerEnter2D(Collider2D collision)

@@ -7,13 +7,17 @@ using UnityEngine.UI;
 public class BonusesUsing : MonoBehaviour
 {
     public List<Outline> bonuses;
-    public int selected = 0;
+    
+    public int selected {
+        get { return CurrentStats.bonusSelection; }
+        set
+        {
+            CurrentStats.bonusSelection = value;
+        }
+    }
+
 
     public List<GameObject> bonusesReveal;
-
-    /*public GameObject shield;
-    public GameObject speedUp;
-    public GameObject coinsDoubler;*/
 
     private Text BonusCount(int select)
     {
@@ -52,24 +56,6 @@ public class BonusesUsing : MonoBehaviour
         if (DecreaseCount(BonusCount(selected)))
             bonusesReveal[selected].SetActive(true);
     }
-
-    //private void ActivateShield()
-    //{
-    //    if (DecreaseCount(BonusCount(selected)))
-    //        shield.SetActive(true);
-    //}
-
-    //private void DoubleCoins()
-    //{
-    //    if (DecreaseCount(BonusCount(selected)))
-    //        coinsDoubler.SetActive(true);
-    //}
-
-    //private void SpeedUp()
-    //{
-    //    if (DecreaseCount(BonusCount(selected)))
-    //        speedUp.SetActive(true);
-    //}
 
     // Update is called once per frame
     void Update()

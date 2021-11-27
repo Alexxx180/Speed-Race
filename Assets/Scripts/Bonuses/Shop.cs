@@ -10,11 +10,10 @@ public class Shop : MonoBehaviour
 
     public void Buy()
     {
-        int value = Convert.ToInt32(money.text);
-        if (value < cost)
+        if (CurrentStats.Coins < cost)
             return;
-        value -= cost;
-        money.text = value.ToString();
+        CurrentStats.Coins -= cost;
+        money.text = CurrentStats.Coins.ToString();
         Refresh(bonusCount, 1);
     }
 

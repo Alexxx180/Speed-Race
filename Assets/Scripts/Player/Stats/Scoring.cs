@@ -11,14 +11,14 @@ public class Scoring : MonoBehaviour
 
     public string GetScore()
     {
-        string text = score.text;
-        return text.Substring(text.LastIndexOf(" ") + 1);
+        return score.text;
     }
 
     public void SetScore()
     {
         int scoreValue = Convert.ToInt32(GetScore());
-        score.text = "" + (scoreValue + scoreIncrement * CurrentStats.speedUp);
+        CurrentStats.Score = scoreValue + scoreIncrement * CurrentStats.speedUp;
+        score.text = "" + CurrentStats.Score;
     }
 
     void FixedUpdate()

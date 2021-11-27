@@ -12,6 +12,11 @@ public class Leaders : MonoBehaviour
     public Text playerName;
     public Text playerScore;
 
+    public Text money;
+    public Text shield;
+    public Text speedUp;
+    public Text doubler;
+
     const string fileName = @"D:\Aleksandr\Windows-7\misc\Games\Develop\Speed-Race\Assets\Resources\Records.txt";
     private List<string> ReadFromTextFile()
     {
@@ -137,5 +142,13 @@ public class Leaders : MonoBehaviour
             throw exp;
         }
         playerScore.text = "0";
+        CurrentStats.Coins = 0;
+        money.text = CurrentStats.Coins.ToString();
+        CurrentStats.SpeedUp = 0;
+        CurrentStats.Shields = 0;
+        CurrentStats.Doubler = 0;
+        shield.text = "0";
+        speedUp.text = "0";
+        doubler.text = "0";
     }
 }

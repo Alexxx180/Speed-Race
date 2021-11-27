@@ -12,6 +12,7 @@ public class PlayerStats : MonoBehaviour
     public GameObject menu;
 
     public Text time;
+    
 
     public int current = 0;
     public int delay = 50;
@@ -33,8 +34,11 @@ public class PlayerStats : MonoBehaviour
             foreach (GameObject obstacle in obstacles)
                 Destroy(obstacle);
             gameObject.SetActive(false);
+            GameObject players = gameObject.transform.parent.gameObject;
+            players.SetActive(false);
             CurrentStats.ResetTime();
             time.text = Convert(CurrentStats.Time);
+            
             playground.SetActive(false);
             hp = maxHp;
         }
