@@ -1,13 +1,13 @@
-﻿public class SpeedUp : Bonuses
+﻿public class Doubler : Bonuses
 {
     public void OnEnable()
     {
-        CurrentStats.speedUp = 2;
+        CurrentStats.coinsMultiplier = 2;
         FullRefresh();
     }
 
     public void OnDisable()
     {
-        CurrentStats.speedUp = 1;
+        CurrentStats.coinsMultiplier = 1;
     }
 }
