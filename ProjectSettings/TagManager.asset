@@ -8,6 +8,9 @@ TagManager:
   - Obstacle
   - ShieldBonus
   - Money
+  - Shield
+  - Doubler
+  - SpeedUp
   layers:
   - Default
   - TransparentFX

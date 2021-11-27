@@ -812,6 +812,9 @@ MonoBehaviour:
   - {fileID: 463701305}
   - {fileID: 336953209}
   menu: {fileID: 402945379}
+  time: {fileID: 481913760}
+  current: 0
+  delay: 10
 --- !u!114 &209952368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -824,7 +827,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f5881b9365cbd941aa67a35c5cade64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bonuses: []
+  bonuses:
+  - {fileID: 1965309779}
+  - {fileID: 747890381}
+  - {fileID: 1661471234}
   selected: 0
   bonusesReveal:
   - {fileID: 859219325}
@@ -2219,7 +2225,7 @@ GameObject:
   - component: {fileID: 529702997}
   m_Layer: 0
   m_Name: Value
-  m_TagString: Untagged
+  m_TagString: Doubler
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2275,7 +2281,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 999
+  m_Text: 0
 --- !u!222 &529702998
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2733,7 +2739,7 @@ GameObject:
   - component: {fileID: 648849675}
   m_Layer: 0
   m_Name: Value
-  m_TagString: Untagged
+  m_TagString: SpeedUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2789,7 +2795,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 999
+  m_Text: 0
 --- !u!222 &648849676
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3136,6 +3142,9 @@ MonoBehaviour:
   - {fileID: 463701305}
   - {fileID: 336953209}
   menu: {fileID: 402945379}
+  time: {fileID: 481913760}
+  current: 0
+  delay: 10
 --- !u!114 &767672824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3148,7 +3157,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f5881b9365cbd941aa67a35c5cade64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bonuses: []
+  bonuses:
+  - {fileID: 1965309779}
+  - {fileID: 747890381}
+  - {fileID: 1661471234}
   selected: 0
   bonusesReveal:
   - {fileID: 859219325}
@@ -3421,6 +3433,9 @@ MonoBehaviour:
   - {fileID: 463701305}
   - {fileID: 336953209}
   menu: {fileID: 402945379}
+  time: {fileID: 481913760}
+  current: 0
+  delay: 10
 --- !u!114 &834041817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4878,6 +4893,7 @@ GameObject:
   - component: {fileID: 1331414996}
   - component: {fileID: 1331414997}
   - component: {fileID: 1331414998}
+  - component: {fileID: 1331414999}
   m_Layer: 0
   m_Name: WallPlayground
   m_TagString: Field
@@ -4954,6 +4970,30 @@ MonoBehaviour:
   - {fileID: 1462203655}
   minTime: 500
   maxTime: 750
+  toTime: 10
+  time: 0
+--- !u!114 &1331414999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1331414995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22dd89e19a5cae04aaeedac0f3b9197b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obstacles:
+  - {fileID: 2243009483659292461, guid: b31fd9163fee39f4aa7977ec6d7add1b, type: 3}
+  - {fileID: 2243009483659292461, guid: bfeedee3c9688a14baf2a84e18c8ca51, type: 3}
+  - {fileID: 2243009483659292461, guid: a13ae06fefd39db459d65d707cb72a1e, type: 3}
+  appearZones:
+  - {fileID: 1488101074}
+  - {fileID: 770515643}
+  - {fileID: 1462203655}
+  minTime: 2500
+  maxTime: 5000
   toTime: 10
   time: 0
 --- !u!1 &1366354233
@@ -6224,7 +6264,7 @@ GameObject:
   - component: {fileID: 1941554546}
   m_Layer: 0
   m_Name: Value
-  m_TagString: Untagged
+  m_TagString: Shield
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6280,7 +6320,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 999
+  m_Text: 0
 --- !u!222 &1941554547
 CanvasRenderer:
   m_ObjectHideFlags: 0

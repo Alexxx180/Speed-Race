@@ -1,19 +1,12 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 
 public class CoinsReward : Rewards
 {
-    public Text money;
-
-    public void Awake()
-    {
-        GameObject moneyObject = GameObject.FindGameObjectWithTag("Money");
-        money = moneyObject.GetComponent<Text>();
-    }
+    public readonly int max = 999999;
 
     public override void Reward()
     {
-        CurrentStats.Coins = Mathf.Clamp(CurrentStats.Coins + value * CurrentStats.coinsMultiplier, 0, 999999);
+        CurrentStats.Coins = Mathf.Clamp(CurrentStats.Coins + value * CurrentStats.coinsMultiplier, 0, max);
         money.text = CurrentStats.Coins.ToString();
         Destroy(gameObject);
     }

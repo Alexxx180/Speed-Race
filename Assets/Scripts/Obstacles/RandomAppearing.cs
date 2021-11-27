@@ -30,7 +30,7 @@ public class RandomAppearing : MonoBehaviour
             return;
 
         int count = Random.Range(0, 2);
-        int kind = Random.Range(0, 2);
+        int kind = Random.Range(0, obstacles.Count);
         int position = Random.Range(0, 3);
 
         CreateObstacle(kind, position);
