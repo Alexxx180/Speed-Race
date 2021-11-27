@@ -8,7 +8,7 @@ public class RandomAppearing : MonoBehaviour
     public List<GameObject> obstacles;
     public List<GameObject> appearZones;
 
-    public float minTime = 200f;
+    public float minTime = 750f;
     public float maxTime = 1000f;
 
     public float toTime = 10f;

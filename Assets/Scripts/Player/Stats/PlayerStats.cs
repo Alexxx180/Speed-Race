@@ -15,6 +15,8 @@ public class PlayerStats : MonoBehaviour
         {
             menu.SetActive(true);
             shield.SetActive(false);
+            CurrentStats.speedUp = 1;
+            CurrentStats.coinsMultiplier = 1;
             gameObject.SetActive(false);
             hp = maxHp;
         }

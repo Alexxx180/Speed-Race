@@ -6,6 +6,7 @@ public class BarierMoves : MonoBehaviour
     public float sizeInc = 1f;
     public float moveInc = 2.464285714285714f;
     public int rotateX = -1;
+    public int speedUp => CurrentStats.speedUp;
 
     private Vector3 minPosition = new Vector3(-35f, 60f, 0f);
     private Vector3 minSize = new Vector3(0.1f, 0.1f, 0.1f);
@@ -19,9 +20,9 @@ public class BarierMoves : MonoBehaviour
         Vector3 mem = gameObject.transform.position;
         Vector3 size = gameObject.transform.localScale;
 
-        float x = mem.x + (moveInc * rotateX) * Time.fixedDeltaTime * speed;
-        float y = mem.y - moveInc * 1.115942028985507f * Time.fixedDeltaTime * speed;
-        float inc = size.x + sizeInc * speed * Time.fixedDeltaTime;
+        float x = mem.x + (moveInc * rotateX) * Time.fixedDeltaTime * speed * speedUp;
+        float y = mem.y - moveInc * 1.115942028985507f * Time.fixedDeltaTime * speed * speedUp;
+        float inc = size.x + sizeInc * speed * speedUp * Time.fixedDeltaTime;
 
         gameObject.transform.position = new Vector3(x, y, 0);
         gameObject.transform.localScale = new Vector3(inc, inc, inc);

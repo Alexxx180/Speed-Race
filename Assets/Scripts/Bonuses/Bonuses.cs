@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class Shield : MonoBehaviour
+public class Bonuses : MonoBehaviour
 {
     public Text duration;
     public int delay = 10;
@@ -9,37 +9,33 @@ public class Shield : MonoBehaviour
     public int time = 20;
     public int maxTime = 20;
 
-    public void OnTriggerEnter2D(Collider2D collision)
+    public void FullRefresh()
     {
-        if (collision.gameObject.CompareTag("Obstacle"))
-        {
-            DestroyShield();
-            Destroy(collision.gameObject);
-        }
-    }
-
-    public void OnEnable()
-    {
-        time = maxTime;
         current = 0;
+        TimeRefresh(maxTime);
     }
 
-    private void DestroyShield()
+    private void TimeRefresh(int toDestroy)
+    {
+        time = toDestroy;
+        duration.text = time.ToString();
+    }
+
+    public void DestroyBonus()
     {
         gameObject.SetActive(false);
     }
 
     private void DecreaseDuration()
     {
-        time--;
-        duration.text = time.ToString();
+        TimeRefresh(time - 1);
     }
 
     void FixedUpdate()
     {
         if (time <= 0)
         {
-            DestroyShield();
+            DestroyBonus();
             return;
         }
         current++;

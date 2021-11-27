@@ -1,15 +1,20 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Bonuses : MonoBehaviour
+public class BonusesUsing : MonoBehaviour
 {
     public List<Outline> bonuses;
     public int selected = 0;
 
-    public GameObject shield;
-    
+    public List<GameObject> bonusesReveal;
+
+    /*public GameObject shield;
+    public GameObject speedUp;
+    public GameObject coinsDoubler;*/
+
     private Text BonusCount(int select)
     {
         GameObject bonusObject = bonuses[select].gameObject;
@@ -42,26 +47,44 @@ public class Bonuses : MonoBehaviour
         }
     }
 
-    private void ActivateShield()
+    private void Activate()
     {
         if (DecreaseCount(BonusCount(selected)))
-            shield.SetActive(true);
+            bonusesReveal[selected].SetActive(true);
     }
+
+    //private void ActivateShield()
+    //{
+    //    if (DecreaseCount(BonusCount(selected)))
+    //        shield.SetActive(true);
+    //}
+
+    //private void DoubleCoins()
+    //{
+    //    if (DecreaseCount(BonusCount(selected)))
+    //        coinsDoubler.SetActive(true);
+    //}
+
+    //private void SpeedUp()
+    //{
+    //    if (DecreaseCount(BonusCount(selected)))
+    //        speedUp.SetActive(true);
+    //}
 
     // Update is called once per frame
     void Update()
     {
         if (Input.GetButtonDown("UseBonus"))
         {
-            switch (selected)
-            {
-                case 0:
-                    if (!shield.activeSelf)
-                        ActivateShield();
-                    break;
-                default:
-                    break;
-            }
+            BitArray conditions = new BitArray(
+                new bool[] {
+                    !bonusesReveal[0].activeSelf,
+                    CurrentStats.speedUp == 1,
+                    CurrentStats.coinsMultiplier == 1
+                }
+            );
+            if (conditions[selected])
+                Activate();
         }
 
         if (Input.GetButtonDown("BonusMove") && Input.GetAxisRaw("Horizontal") > 0)
