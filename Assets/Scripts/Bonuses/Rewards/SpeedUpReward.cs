@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
 
-public class DoublerReward : Rewards
+public class SpeedUpReward : Rewards
 {
     public readonly int max = 999;
 
     public override void Reward()
     {
-        CurrentStats.Doubler = Mathf.Clamp(CurrentStats.Shields + value, 0, max);
-        money.text = CurrentStats.Doubler.ToString();
+        CurrentStats.SpeedUp = Mathf.Clamp(CurrentStats.SpeedUp + value, 0, max);
+        money.text = CurrentStats.SpeedUp.ToString();
         Destroy(gameObject);
     }
 }

@@ -5502,6 +5502,7 @@ GameObject:
   - component: {fileID: 1331414997}
   - component: {fileID: 1331414998}
   - component: {fileID: 1331414999}
+  - component: {fileID: 1331415000}
   m_Layer: 0
   m_Name: WallPlayground
   m_TagString: Field
@@ -5604,6 +5605,45 @@ MonoBehaviour:
   maxTime: 5000
   toTime: 10
   time: 0
+--- !u!114 &1331415000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1331414995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d10ad58645366724f9e54c493dfe0df2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  apperance: {fileID: 1331414997}
+  background: {fileID: 53094389}
+  obstacles:
+    objects:
+    - objects:
+      - {fileID: 1801419644856629631, guid: 801382e40f6d3ec4e85e8c34495669e1, type: 3}
+      - {fileID: 2243009483659292461, guid: 60199aeead37fdc40aa77dbaae51bf9f, type: 3}
+    - objects:
+      - {fileID: 2243009483659292461, guid: 97db350803662764b83f0e04f5e5e9b8, type: 3}
+      - {fileID: 2243009483659292461, guid: 77b4b546a8b6261409d47c2338e20ad6, type: 3}
+    - objects:
+      - {fileID: 1801419644856629631, guid: cc2601caddd1b3645a58bc893dd3e3f5, type: 3}
+      - {fileID: 2243009483659292461, guid: 05ecf39a3061a154f838e90dff15b4b0, type: 3}
+    - objects:
+      - {fileID: 1801419644856629631, guid: 6115ab5e4db49bf4bad7292882f7b21f, type: 3}
+      - {fileID: 1801419644856629631, guid: 2011437062384e54580c676e771c904a, type: 3}
+    - objects:
+      - {fileID: 2243009483659292461, guid: da1773459f72fa24da3ebab904fd53e5, type: 3}
+      - {fileID: 2243009483659292461, guid: 7e210160b8b33524f9354d71ee9af3d2, type: 3}
+  sprites:
+  - {fileID: 21300000, guid: 756f34b46a5b0d34f9372668272c3c22, type: 3}
+  - {fileID: 21300000, guid: 7385bd6248e1cf64cad07f1da3239c04, type: 3}
+  - {fileID: 21300000, guid: f4825e47f44f279439741ddb5c9f7f23, type: 3}
+  - {fileID: 21300000, guid: 83a10ea918db19d4ba783182b6ef1620, type: 3}
+  - {fileID: 21300000, guid: 0a1953cae02353749a4d4103d32f17fa, type: 3}
+  minTime: 25000
+  maxTime: 50000
 --- !u!1 &1349407467
 GameObject:
   m_ObjectHideFlags: 0
