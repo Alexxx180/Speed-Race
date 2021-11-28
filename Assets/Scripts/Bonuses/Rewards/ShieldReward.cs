@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class ShieldReward : Rewards
 {
@@ -6,8 +7,9 @@ public class ShieldReward : Rewards
 
     public override void Reward()
     {
-        CurrentStats.Shields = Mathf.Clamp(CurrentStats.Shields + value, 0, max);
-        money.text = CurrentStats.Shields.ToString();
+        int valueMoney = Convert.ToInt32(money.text);
+        valueMoney = Mathf.Clamp(valueMoney + value, 0, max);
+        money.text = valueMoney.ToString();
         Destroy(gameObject);
     }
 }

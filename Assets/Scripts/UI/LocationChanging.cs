@@ -7,7 +7,7 @@ public class LocationChanging : MonoBehaviour
     public RandomAppearing apperance;
     public Image background;
     
-    public DoubleList obstacles = new DoubleList();
+    public DoubleList obstacles;
     public List<Sprite> sprites;
 
     public int minTime = 2500;
@@ -17,6 +17,8 @@ public class LocationChanging : MonoBehaviour
     public int _current = 0;
     private int _delay = 3750;
 
+    // Here we change location with random set
+    // of time between range of two values
     public void FixedUpdate()
     {
         _current++;

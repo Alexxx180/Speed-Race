@@ -71,6 +71,7 @@ public class Leaders : MonoBehaviour
         return Convert.ToInt32(ob);
     }
 
+    // Recover score spaces
     private string ScoreTrim2(string record)
     {
         if (record.LastIndexOf(".") + 1 >= record.Length)
@@ -78,6 +79,7 @@ public class Leaders : MonoBehaviour
         return record.Substring(record.LastIndexOf(".") + 1);
     }
 
+    // Recover score spaces
     private string ScoreRecover(string record)
     {
         record = "." + record;
@@ -86,6 +88,7 @@ public class Leaders : MonoBehaviour
         return record;
     }
 
+    // Split records from two lists into one records list
     private List<string> JoinRecords(List<string> names, List<string> scores)
     {
         List<string> records = new List<string>();
@@ -98,6 +101,7 @@ public class Leaders : MonoBehaviour
         return records;
     }
 
+    // Split records to two lists
     private List<List<string>> SplitRecords(List<string> records)
     {
         List<List<string>> records2 = new List<List<string>>();
@@ -115,6 +119,7 @@ public class Leaders : MonoBehaviour
         return records2;
     }
 
+    // Write record into text file
     private void WriteTextFile(string name, int score)
     {
         List<string> records = ReadFromTextFile();
@@ -144,9 +149,6 @@ public class Leaders : MonoBehaviour
         playerScore.text = "0";
         CurrentStats.Coins = 0;
         money.text = CurrentStats.Coins.ToString();
-        CurrentStats.SpeedUp = 0;
-        CurrentStats.Shields = 0;
-        CurrentStats.Doubler = 0;
         shield.text = "0";
         speedUp.text = "0";
         doubler.text = "0";

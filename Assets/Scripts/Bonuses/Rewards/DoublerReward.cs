@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class DoublerReward : Rewards
 {
@@ -6,8 +7,9 @@ public class DoublerReward : Rewards
 
     public override void Reward()
     {
-        CurrentStats.Doubler = Mathf.Clamp(CurrentStats.Doubler + value, 0, max);
-        money.text = CurrentStats.Doubler.ToString();
+        int valueMoney = Convert.ToInt32(money.text);
+        valueMoney = Mathf.Clamp(valueMoney + value, 0, max);
+        money.text = valueMoney.ToString();
         Destroy(gameObject);
     }
 }

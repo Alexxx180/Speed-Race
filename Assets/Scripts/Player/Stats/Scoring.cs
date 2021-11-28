@@ -8,7 +8,8 @@ public class Scoring : MonoBehaviour
     public int scoreIncrement;
     public int delay = 100;
     public int current = 0;
-
+    private int _scoreValue => Convert.ToInt32(GetScore());
+    
     public string GetScore()
     {
         return score.text;
@@ -16,13 +17,14 @@ public class Scoring : MonoBehaviour
 
     public void SetScore()
     {
-        int scoreValue = Convert.ToInt32(GetScore());
-        CurrentStats.Score = scoreValue + scoreIncrement * CurrentStats.speedUp;
+        CurrentStats.Score = _scoreValue + scoreIncrement * CurrentStats.speedUp;
         score.text = "" + CurrentStats.Score;
     }
 
     void FixedUpdate()
     {
+        if (_scoreValue >= 999_999_999)
+            return;
         current++;
         if (current > delay)
         {

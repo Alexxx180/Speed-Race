@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class SpeedUpReward : Rewards
 {
@@ -6,8 +7,9 @@ public class SpeedUpReward : Rewards
 
     public override void Reward()
     {
-        CurrentStats.SpeedUp = Mathf.Clamp(CurrentStats.SpeedUp + value, 0, max);
-        money.text = CurrentStats.SpeedUp.ToString();
+        int valueMoney = Convert.ToInt32(money.text);
+        valueMoney = Mathf.Clamp(valueMoney + value, 0, max);
+        money.text = valueMoney.ToString();
         Destroy(gameObject);
     }
 }

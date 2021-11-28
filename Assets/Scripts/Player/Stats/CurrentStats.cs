@@ -6,9 +6,6 @@
 
     public static int Score = 0;
     public static int Coins = 0;
-    public static int Shields = 0;
-    public static int SpeedUp = 0;
-    public static int Doubler = 0;
 
     public static byte[] Time = { 0, 0, 0 };
 
@@ -22,9 +19,6 @@
     {
         ResetTime();
         Coins = 0;
-        Shields = 0;
-        SpeedUp = 0;
-        Doubler = 0;
         coinsMultiplier = 1;
         speedUp = 1;
     }
