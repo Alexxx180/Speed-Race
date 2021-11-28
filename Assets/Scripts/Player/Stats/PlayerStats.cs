@@ -44,7 +44,7 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
-    private byte[] intervals = { 10, 60, 60 };
+    private byte[] intervals = { 10, 59, 59 };
 
     private bool IsOverFlow()
     {
@@ -74,7 +74,7 @@ public class PlayerStats : MonoBehaviour
             return;
         for (int i = CurrentStats.Time.Length - 1; i >= 0; i--)
         {
-            if (CurrentStats.Time[i] <= intervals[i])
+            if (CurrentStats.Time[i] < intervals[i])
             {
                 CurrentStats.Time[i]++;
                 break;

@@ -1016,7 +1016,7 @@ MonoBehaviour:
   menu: {fileID: 402945379}
   time: {fileID: 481913760}
   current: 0
-  delay: 10
+  delay: 40
 --- !u!114 &209952368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1103,7 +1103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: {fileID: 288712833}
   scoreIncrement: 1
-  delay: 10
+  delay: 40
   current: 0
 --- !u!1 &222850907
 GameObject:
@@ -3476,7 +3476,7 @@ MonoBehaviour:
   menu: {fileID: 402945379}
   time: {fileID: 481913760}
   current: 0
-  delay: 10
+  delay: 40
 --- !u!114 &767672824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3537,7 +3537,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: {fileID: 288712833}
   scoreIncrement: 3
-  delay: 10
+  delay: 40
   current: 0
 --- !u!1 &770515643
 GameObject:
@@ -3824,7 +3824,7 @@ MonoBehaviour:
   menu: {fileID: 402945379}
   time: {fileID: 481913760}
   current: 0
-  delay: 10
+  delay: 40
 --- !u!114 &834041817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3885,7 +3885,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: {fileID: 288712833}
   scoreIncrement: 5
-  delay: 10
+  delay: 40
   current: 0
 --- !u!1 &859219325
 GameObject:
@@ -5555,8 +5555,9 @@ MonoBehaviour:
   - {fileID: 1488101074}
   - {fileID: 770515643}
   - {fileID: 1462203655}
-  minTime: 750
-  maxTime: 1000
+  speed: 1
+  minTime: 250
+  maxTime: 400
   toTime: 200
   time: 0
 --- !u!114 &1331414998
@@ -5578,8 +5579,9 @@ MonoBehaviour:
   - {fileID: 1488101074}
   - {fileID: 770515643}
   - {fileID: 1462203655}
-  minTime: 500
-  maxTime: 750
+  speed: 1
+  minTime: 100
+  maxTime: 200
   toTime: 10
   time: 0
 --- !u!114 &1331414999
@@ -5602,8 +5604,9 @@ MonoBehaviour:
   - {fileID: 1488101074}
   - {fileID: 770515643}
   - {fileID: 1462203655}
-  minTime: 2500
-  maxTime: 5000
+  speed: 1
+  minTime: 500
+  maxTime: 1000
   toTime: 10
   time: 0
 --- !u!114 &1331415000

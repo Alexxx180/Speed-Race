@@ -15,7 +15,7 @@ public class BarierMoves : MonoBehaviour
     private Vector3 maxSize = new Vector3(1.5f, 1.5f, 1.5f);
 
 
-    public void Update()
+    public void FixedUpdate()
     {
         Vector3 mem = gameObject.transform.position;
         Vector3 size = gameObject.transform.localScale;

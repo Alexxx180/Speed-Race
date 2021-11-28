@@ -6,11 +6,15 @@ public class RandomAppearing : MonoBehaviour
     public List<GameObject> obstacles;
     public List<GameObject> appearZones;
 
+    public float speed = 2f;
+
     public float minTime = 750f;
     public float maxTime = 1000f;
 
     public float toTime = 10f;
     public float time = 0f;
+
+    public int speedUp => CurrentStats.speedUp;
 
     private void CreateObstacle(int kind, int position)
     {
@@ -23,9 +27,9 @@ public class RandomAppearing : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        time++;
+        time += speedUp;
         if (time < toTime)
             return;
 
@@ -39,7 +43,7 @@ public class RandomAppearing : MonoBehaviour
             CreateObstacle(kind, Mathf.Abs(position - count));
         }
 
-        toTime = Random.Range(minTime, maxTime); 
+        toTime = Random.Range(minTime / speed, maxTime / speed);
         time = 0f;
     }
 }
