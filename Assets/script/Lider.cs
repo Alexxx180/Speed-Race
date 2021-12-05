@@ -3,20 +3,30 @@ using System;
 using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Reflection;
 
 public class Lider : MonoBehaviour
 {
     public List<Text> names;
     public Text playerName;
     public Text score;
-    const string fileName = @"C:\Users\student\Desktop\8901_Afanaseva\dem_Afanaseva_8901\Assets\resources\Leaders.txt";
+    const string fileName = "/resources/Leaders.txt";
+    private string fullName;
+
+    private void Awake()
+    {
+        string directory = Application.dataPath;
+        fullName = directory + fileName;
+    }
+
     private List<string> ReadFromTextFile()
     {
         List<string> lines = new List<string>();
         try
         {
+            
             // Create a StreamReader  
-            using (StreamReader reader = new StreamReader(fileName))
+            using (StreamReader reader = new StreamReader(fullName))
             {
                 
                 string line;
@@ -74,7 +84,7 @@ public class Lider : MonoBehaviour
                     records[i] = $"{name} {score}";
                 }
             }
-            File.WriteAllLines(fileName, records);
+            File.WriteAllLines(fullName, records);
             // Create a StreamReader  
         }
         catch (IOException exp)

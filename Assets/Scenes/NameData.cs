@@ -8,10 +8,8 @@ public class NameData : MonoBehaviour
     public void Awake()
     {
         gameObject.GetComponent<Text>().text = PlayreData.passName;
-        characters[0].SetActive(false);
-        characters[1].SetActive(false);
-        characters[2].SetActive(false);
-        characters[3].SetActive(false);
+        for(byte i = 0; i < characters.Count; i++)
+            characters[i].SetActive(false);
         characters[PlayreData.no].SetActive(true);
     }
 }

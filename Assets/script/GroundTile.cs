@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class GroundTile : MonoBehaviour
 {
-    GroundSpawer groundSpawner;
+    GroundSpawner groundSpawner;
     void Start()
     {
-        groundSpawner = GameObject.FindObjectOfType<GroundSpawer>();
+        groundSpawner = GameObject.FindObjectOfType<GroundSpawner>();
         SpawnObstacle();
         SpawnCoins();
     }

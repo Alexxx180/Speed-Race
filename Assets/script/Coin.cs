@@ -5,6 +5,7 @@ using UnityEngine;
 public class Coin : MonoBehaviour
 {
     public float turnSpeed = 90f;
+    public int value = 5;
 
     private void OnTriggerEnter(Collider other)
    
@@ -13,19 +14,14 @@ public class Coin : MonoBehaviour
         {
             Destroy(gameObject);
             return;
-           }
+        }
         if (! other.gameObject.CompareTag("Player")) {
             return;
         }
-
-        GameManager.inst.IncrementScore();
-
+        
+        PlayreData.Coins += value * PlayreData.coinsMultiplier;
 
         Destroy(gameObject);
-    }
-    void Start()
-    {
-        
     }
 
     // Update is called once per frame

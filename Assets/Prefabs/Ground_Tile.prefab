@@ -41,6 +41,8 @@ GameObject:
   - component: {fileID: 1548424015773240221}
   - component: {fileID: 1961463303197595999}
   - component: {fileID: 7192062175976520741}
+  - component: {fileID: 2688334616459211879}
+  - component: {fileID: 9003345008638187026}
   m_Layer: 8
   m_Name: Ground_Tile
   m_TagString: Untagged
@@ -96,6 +98,32 @@ MonoBehaviour:
     type: 3}
   coinPrefab: {fileID: 3540957716189522194, guid: be0e82849b0fc7042874ca579250f172,
     type: 3}
+--- !u!65 &2688334616459211879
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3120728703569349761}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.89857376, y: 10.635828, z: 14.610568}
+  m_Center: {x: 5.397174, y: 4.817913, z: 4.8653846}
+--- !u!65 &9003345008638187026
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3120728703569349761}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.98065555, y: 10.891868, z: 15.424772}
+  m_Center: {x: -5.5343227, y: 4.945935, z: 4.840582}
 --- !u!1 &3549220360393818117
 GameObject:
   m_ObjectHideFlags: 0

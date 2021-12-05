@@ -7,6 +7,8 @@ public class PlayerMovement : MonoBehaviour
 {
     bool alive = true;
 
+    public GameObject shield;
+
     public float speed = 5;
     [SerializeField] Rigidbody rb;
 
@@ -15,46 +17,47 @@ public class PlayerMovement : MonoBehaviour
 
     public float speedIncreasePerPoint = 0.1f;
 
-    [SerializeField] float jumpForce = 400f;
+    public void Awake()
+    {
+        PlayreData.shield = shield;
+    }
+
     [SerializeField] LayerMask groundMask;
     private void FixedUpdate()
     {
-        if (!alive) return;
+        if (!alive)
+            return;
 
-        Vector3 forwardMove = transform.forward * speed * Time.fixedDeltaTime;
-        Vector3 horizontalMove = transform.right * horizontalInput * speed * Time.fixedDeltaTime * horizontalMultiplier;
+        Vector3 forwardMove = transform.forward * speed * Time.fixedDeltaTime * PlayreData.speedUp;
+        Vector3 horizontalMove = transform.right * horizontalInput * speed * Time.fixedDeltaTime * horizontalMultiplier * PlayreData.speedUp;
         rb.MovePosition(rb.position + forwardMove + horizontalMove);
     }
 
     private void Update()
     {
         horizontalInput = Input.GetAxis("Horizontal");
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Jump();
-        }
         if (transform.position.y < -5)
-        {
             Die();
-        }
+        if (Input.GetKeyDown(KeyCode.S))
+            PlayreData.UseBonus();
+        if (Input.GetKeyDown(KeyCode.A))
+            PlayreData.bonusSelection = Mathf.Clamp(PlayreData.bonusSelection - 1, 0, 2);
+        if (Input.GetKeyDown(KeyCode.D))
+            PlayreData.bonusSelection = Mathf.Clamp(PlayreData.bonusSelection + 1, 0, 2);
     }
+
+    
 
     public void Die()
     {
         alive = false;
+        PlayreData.HardReset();
         // Restart the game
-       Invoke("Restart", 2);
+        Invoke("Restart", 2);
     }
 
     void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
-    void Jump() {
-        float height = GetComponent<Collider>().bounds.size.y;
-        bool isGrounded = Physics.Raycast(transform.position, Vector3.down, (height / 2) + 0.1f, groundMask);
-
-        rb.AddForce(Vector3.up * jumpForce);
-    }
-
 }
