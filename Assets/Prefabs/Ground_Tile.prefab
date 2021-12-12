@@ -96,8 +96,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obstraclePrefab: {fileID: 5567733464206956134, guid: 8404bfffa6125eb4292836ccc63469e0,
     type: 3}
-  coinPrefab: {fileID: 3540957716189522194, guid: be0e82849b0fc7042874ca579250f172,
-    type: 3}
+  coins:
+  - {fileID: 3540957716189522194, guid: be0e82849b0fc7042874ca579250f172, type: 3}
+  - {fileID: 3540957716189522194, guid: f1ac496a70ee14f42aae1d08d4193e6a, type: 3}
+  bonuses:
+  - {fileID: 3540957716189522194, guid: 52dee709626afb344bfe8ab7ce107ba2, type: 3}
+  - {fileID: 3540957716189522194, guid: 1850a5cf04dd844439038d1d59250f96, type: 3}
+  - {fileID: 3540957716189522194, guid: 915187cad40ebe74f8782b6624582824, type: 3}
 --- !u!65 &2688334616459211879
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -109,8 +114,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.89857376, y: 10.635828, z: 14.610568}
-  m_Center: {x: 5.397174, y: 4.817913, z: 4.8653846}
+  m_Size: {x: 0.89857376, y: 10.635828, z: 30.953184}
+  m_Center: {x: 5.397174, y: 4.817913, z: 6.424182}
 --- !u!65 &9003345008638187026
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -122,8 +127,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.98065555, y: 10.891868, z: 15.424772}
-  m_Center: {x: -5.5343227, y: 4.945935, z: 4.840582}
+  m_Size: {x: 0.98065555, y: 10.891868, z: 33.177673}
+  m_Center: {x: -5.5343227, y: 4.945935, z: 6.670524}
 --- !u!1 &3549220360393818117
 GameObject:
   m_ObjectHideFlags: 0

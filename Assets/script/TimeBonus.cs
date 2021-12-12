@@ -10,6 +10,11 @@ public class TimeBonus
         time = 0;
     }
 
+    public TimeBonus(byte cnt) : this()
+    {
+        count = cnt;
+    }
+
     public byte count { get; set; }
     public byte time { get; set; }
 }

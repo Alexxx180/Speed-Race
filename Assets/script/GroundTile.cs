@@ -7,8 +7,9 @@ public class GroundTile : MonoBehaviour
     GroundSpawner groundSpawner;
     void Start()
     {
-        groundSpawner = GameObject.FindObjectOfType<GroundSpawner>();
+        groundSpawner = FindObjectOfType<GroundSpawner>();
         SpawnObstacle();
+        SpawnBonuses();
         SpawnCoins();
     }
     private void OnTriggerExit(Collider other)
@@ -30,14 +31,27 @@ public class GroundTile : MonoBehaviour
 
         Instantiate(obstraclePrefab, spawnPoint.position, Quaternion.identity, transform);
     }
-    public GameObject coinPrefab;
+    public List<GameObject> coins;
+    public List<GameObject> bonuses;
+
+    void SpawnBonuses()
+    {
+        int coinsToSpawn = 2;
+        for (int i = 0; i < coinsToSpawn; i++)
+        {
+            int current = Random.Range(0, bonuses.Count);
+            GameObject temp = Instantiate(bonuses[current], transform);
+            temp.transform.position = GetRandomPoinInCollider(GetComponent<Collider>());
+        }
+    }
 
     void SpawnCoins()
     {
         int coinsToSpawn = 10;
         for (int i = 0; i < coinsToSpawn; i++) 
         {
-          GameObject temp = Instantiate(coinPrefab, transform);
+            int current = Random.Range(0, coins.Count);
+          GameObject temp = Instantiate(coins[current], transform);
             temp.transform.position = GetRandomPoinInCollider(GetComponent<Collider>());
         }
     }

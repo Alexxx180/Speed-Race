@@ -13,7 +13,7 @@ public static class PlayreData
     public static int coinsMultiplier = 1;
 
     public static List<TimeBonus> bonusesCount = new List<TimeBonus>() {
-        new TimeBonus(), new TimeBonus(), new TimeBonus()
+        new TimeBonus(20), new TimeBonus(20), new TimeBonus(20)
     };
 
     public static int Score {
@@ -97,13 +97,14 @@ public static class PlayreData
     public static void ResetBonuses()
     {
         for (byte i = 0; i < bonusesCount.Count; i++)
-            bonusesCount[i].count = 0;
+            bonusesCount[i].count = 20;
     }
 
     public static void HardReset()
     {
         ResetTime();
         ResetBonuses();
+        bonusSelection = 0;
         Coins = 0;
         Score = 0;
         coinsMultiplier = 1;

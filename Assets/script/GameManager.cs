@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     public Text moneyText;
     public Text timeText;
 
-    public List<Text> bonuses;
+    public List<Text> bonuses = new List<Text>();
 
     private void Increment(Text text, int value)
     {
@@ -56,5 +56,9 @@ public class GameManager : MonoBehaviour
         scoreText = TryGetObject<Text>("ScoreText");
         moneyText = TryGetObject<Text>("MoneyText");
         timeText = TryGetObject<Text>("TimeText");
+
+        bonuses.Add(TryGetObject<Text>("ShieldText"));
+        bonuses.Add(TryGetObject<Text>("SpeedUpText"));
+        bonuses.Add(TryGetObject<Text>("DoublerText"));
     }
 }

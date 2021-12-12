@@ -4,16 +4,14 @@ using UnityEngine;
 
 public class Pause : MonoBehaviour
 {
-    PlayerMovement player;
-    public void Start()
+    GameObject player;
+    public void Update()
     {
-        GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
-        player = playerObject.GetComponent<PlayerMovement>();
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     public void PausePlayer()
     {
-        Debug.Log(player.name);
-        player.enabled = !player.enabled;
+        player.SetActive(false);
     }
 }

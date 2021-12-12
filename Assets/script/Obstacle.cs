@@ -6,12 +6,8 @@ public class Obstacle : MonoBehaviour
 {
     PlayerMovement playerMovement;
     Lider lider;
-    void Start()
-    {
-        playerMovement = GameObject.FindObjectOfType<PlayerMovement>();
-    }
 
-    private void OnCollisionEnter(Collision collision)
+    public void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
@@ -22,8 +18,20 @@ public class Obstacle : MonoBehaviour
             lider.SetFileRecords();
         }   
     }
-    void Update()
+
+    public void OnTriggerEnter(Collider other)
     {
-        
+        if (other.gameObject.CompareTag("Shield"))
+        {
+            PlayreData.bonusesCount[0].time = 1;
+            Destroy(gameObject);
+            other.gameObject.SetActive(false);
+        }
+    }
+    public void Update()
+    {
+        GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+        if (playerObject != null)
+            playerMovement = playerObject.GetComponent<PlayerMovement>();
     }
 }
