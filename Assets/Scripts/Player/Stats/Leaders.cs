@@ -138,7 +138,7 @@ public class Leaders : MonoBehaviour
         {
             throw exp;
         }
-        
+
         Score = 0;
         Coins = 0;
         money.text = Coins.ToString();

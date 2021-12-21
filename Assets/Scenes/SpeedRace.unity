@@ -913,9 +913,10 @@ MonoBehaviour:
   playerName: {fileID: 68364728}
   playerScore: {fileID: 288712833}
   money: {fileID: 1476580743}
-  shield: {fileID: 1941554546}
-  speedUp: {fileID: 648849675}
-  doubler: {fileID: 529702997}
+  bonuses:
+  - {fileID: 1941554546}
+  - {fileID: 648849675}
+  - {fileID: 529702997}
 --- !u!1 &105566469
 GameObject:
   m_ObjectHideFlags: 0
@@ -1527,9 +1528,7 @@ MonoBehaviour:
   playerName: {fileID: 0}
   playerScore: {fileID: 0}
   money: {fileID: 0}
-  shield: {fileID: 0}
-  speedUp: {fileID: 0}
-  doubler: {fileID: 0}
+  bonuses: []
 --- !u!1 &275163006
 GameObject:
   m_ObjectHideFlags: 0
@@ -6730,9 +6729,7 @@ MonoBehaviour:
   playerName: {fileID: 68364728}
   playerScore: {fileID: 288712833}
   money: {fileID: 1476580743}
-  shield: {fileID: 1941554546}
-  speedUp: {fileID: 648849675}
-  doubler: {fileID: 529702997}
+  bonuses: []
 --- !u!114 &1524202325
 MonoBehaviour:
   m_ObjectHideFlags: 0
