@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using static CurrentStats;
 
 public class BuyCharacter : MonoBehaviour
 {
@@ -11,10 +12,15 @@ public class BuyCharacter : MonoBehaviour
 
     public void Buy()
     {
-        if (CurrentStats.Coins < cost)
+        if (Coins < cost)
             return;
-        CurrentStats.Coins -= cost;
-        money.text = CurrentStats.Coins.ToString();
+        Coins -= cost;
+        money.text = Coins.ToString();
+        Unlock();
+    }
+
+    private void Unlock()
+    {
         lockObject.SetActive(false);
         forSale.SetActive(true);
     }

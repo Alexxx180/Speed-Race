@@ -1,49 +1,44 @@
 ﻿using System.Collections.Generic;
+using static System.Convert;
 using UnityEngine;
+using static UnityEngine.Random;
+using static CurrentStats;
 
 public class RandomAppearing : MonoBehaviour
 {
     public List<GameObject> obstacles;
     public List<GameObject> appearZones;
 
-    public float speed = 2f;
+    private readonly float _minTime = 200f;
+    private readonly float _maxTime = 300f;
 
-    public float minTime = 750f;
-    public float maxTime = 1000f;
-
-    public float toTime = 10f;
-    public float time = 0f;
-
-    public int speedUp => CurrentStats.speedUp;
+    private readonly TimeSystem _createTime = new TimeSystem(0, 50);
 
     private void CreateObstacle(int kind, int position)
     {
         GameObject obstacle = Instantiate(obstacles[kind]);
-        obstacle.transform.SetParent(gameObject.transform);
+        obstacle.transform.SetParent(transform);
         obstacle.GetComponent<BarierMoves>().rotateX = position - 1;
 
-        obstacle.transform.position = appearZones[position].transform.position;
-        obstacle.transform.localScale = appearZones[position].transform.localScale;
+        Transform appearZone = appearZones[position].transform;
+        obstacle.transform.position = appearZone.position;
+        obstacle.transform.localScale = appearZone.localScale;
     }
 
-    // Update is called once per frame
+    // FixedUpdate is called in fixed amount of time
     void FixedUpdate()
     {
-        time += speedUp;
-        if (time < toTime)
+        if (_createTime.FullTimeBeat())
             return;
+        int delayRange = ToInt32(Range(_minTime, _maxTime));
+        _createTime.SetDelay(delayRange / speedUp);
 
-        int count = Random.Range(0, 2);
-        int kind = Random.Range(0, obstacles.Count);
-        int position = Random.Range(0, 3);
+        int count = Range(0, 2);
+        int kind = Range(0, obstacles.Count);
+        int position = Range(0, 3);
 
         CreateObstacle(kind, position);
         if (count > 0)
-        {
             CreateObstacle(kind, Mathf.Abs(position - count));
-        }
-
-        toTime = Random.Range(minTime / speed, maxTime / speed);
-        time = 0f;
     }
 }

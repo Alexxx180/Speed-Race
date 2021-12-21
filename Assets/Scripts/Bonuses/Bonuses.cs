@@ -1,24 +1,22 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using static Timing;
 
 public class Bonuses : MonoBehaviour
 {
     public Text duration;
-    public int delay = 10;
-    public int current = 0;
-    public int time = 20;
-    public int maxTime = 20;
+    private int _time = 20;
+    private readonly int _maxTime = 20;
 
     public void FullRefresh()
     {
-        current = 0;
-        TimeRefresh(maxTime);
+        TimeRefresh(_maxTime);
     }
 
     private void TimeRefresh(int toDestroy)
     {
-        time = toDestroy;
-        duration.text = time.ToString();
+        _time = toDestroy;
+        duration.text = _time.ToString();
     }
 
     public void DestroyBonus()
@@ -28,21 +26,15 @@ public class Bonuses : MonoBehaviour
 
     private void DecreaseDuration()
     {
-        TimeRefresh(time - 1);
+        TimeRefresh(_time - 1);
+        if (_time <= 0)
+            DestroyBonus();
     }
 
     void FixedUpdate()
     {
-        if (time <= 0)
-        {
-            DestroyBonus();
+        if (NoBeat)
             return;
-        }
-        current++;
-        if (current > delay)
-        {
-            current = 0;
-            DecreaseDuration();
-        }
+        DecreaseDuration();
     }
 }

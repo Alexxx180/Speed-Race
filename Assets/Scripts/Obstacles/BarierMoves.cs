@@ -2,31 +2,30 @@
 
 public class BarierMoves : MonoBehaviour
 {
+    // This list created according 
+    // to best fit with game needs
     public float speed = 0.5f;
     public float sizeInc = 1f;
     public float moveInc = 2.464285714285714f;
-    public int rotateX = -1;
-    public int speedUp => CurrentStats.speedUp;
+    public int rotateX = 0;
 
-    private Vector3 minPosition = new Vector3(-35f, 60f, 0f);
-    private Vector3 minSize = new Vector3(0.1f, 0.1f, 0.1f);
-
-    private Vector3 maxPosition = new Vector3(-380f, -385f, 0f);
-    private Vector3 maxSize = new Vector3(1.5f, 1.5f, 1.5f);
-
+    private readonly float _maxSize = 1.5f;
+    private readonly float _yOffset = 1.115942028985507f;
 
     public void FixedUpdate()
     {
-        Vector3 mem = gameObject.transform.position;
-        Vector3 size = gameObject.transform.localScale;
+        Vector3 mem = transform.position;
+        Vector3 size = transform.localScale;
 
-        float x = mem.x + (moveInc * rotateX) * Time.fixedDeltaTime * speed * speedUp;
-        float y = mem.y - moveInc * 1.115942028985507f * Time.fixedDeltaTime * speed * speedUp;
-        float inc = size.x + sizeInc * speed * speedUp * Time.fixedDeltaTime;
+        float timing = Time.fixedDeltaTime * speed * CurrentStats.speedUp;
 
-        gameObject.transform.position = new Vector3(x, y, 0);
-        gameObject.transform.localScale = new Vector3(inc, inc, inc);
-        if (inc >= maxSize.x)
+        float x = mem.x + moveInc * rotateX * timing;
+        float y = mem.y - moveInc * _yOffset * timing;
+        float inc = size.x + sizeInc * timing;
+
+        transform.position = new Vector3(x, y, 0);
+        transform.localScale = new Vector3(inc, inc, inc);
+        if (inc >= _maxSize)
             Destroy(gameObject);
     }
 }

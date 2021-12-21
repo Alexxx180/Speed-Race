@@ -1,28 +1,29 @@
-﻿using System;
+﻿using static System.Convert;
 using UnityEngine;
 using UnityEngine.UI;
+using static CurrentStats;
 
 public class Shop : MonoBehaviour
 {
+    public string type;
     public Text bonusCount;
     public Text money;
     public int cost = 0;
 
     public void Buy()
     {
-        if (CurrentStats.Coins < cost)
+        if (Coins < cost)
             return;
-        CurrentStats.Coins -= cost;
-        money.text = CurrentStats.Coins.ToString();
         Refresh(bonusCount, 1);
     }
 
-    private void Refresh(Text text, int increment)
+    private void Refresh(Text amount, int increment)
     {
-        int count = Convert.ToInt32(text.text);
-        if (count >= 999)
+        if (Inventory[type] >= MaxCount)
             return;
-        count = count + increment;
-        text.text = count.ToString();
+        Coins -= cost;
+        money.text = Coins.ToString();
+        Inventory[type] += ToUInt16(increment);
+        amount.text = Inventory[type].ToString();
     }
 }

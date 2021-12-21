@@ -9,30 +9,23 @@ public class Pause : MonoBehaviour
 
     public void PauseEnvironment()
     {
-        menu.SetActive(true);
-
         playerObject = GameObject.FindGameObjectWithTag("Player");
-        playerObject.SetActive(false);
-
-        gameObject.SetActive(false);
-
-        for (int i = 0; i < toPause.Count; i++)
-        {
-            toPause[i].SetActive(false);
-        }
+        Turn(false);
     }
 
     public void UnPause()
     {
-        menu.SetActive(false);
-        gameObject.SetActive(true);
+        Turn(true);
+    }
 
-        playerObject.SetActive(true);
+    private void Turn(bool activate)
+    {
+        playerObject.SetActive(activate);
+        gameObject.SetActive(activate);
+        menu.SetActive(!activate);
 
         for (int i = 0; i < toPause.Count; i++)
-        {
-            toPause[i].SetActive(true);
-        }
+            toPause[i].SetActive(activate);
     }
 
     public void QuitToPlayers()
@@ -43,8 +36,6 @@ public class Pause : MonoBehaviour
     void Update()
     {
         if (Input.GetButtonDown("Jump"))
-        {
             PauseEnvironment();
-        }
     }
 }

@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static Timing;
+using static CurrentStats;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -12,15 +14,18 @@ public class PlayerStats : MonoBehaviour
     public GameObject menu;
 
     public Text time;
-    
-
-    public int current = 0;
-    public int delay = 50;
 
     public void NegativeZone()
     {
         for (int i = 0; i < bonuses.Count; i++)
             bonuses[i].SetActive(false);
+    }
+
+    private void DestroyObstacles()
+    {
+        GameObject[] obstacles = GameObject.FindGameObjectsWithTag("Obstacle");
+        foreach (GameObject obstacle in obstacles)
+            Destroy(obstacle);
     }
 
     public void Hurt()
@@ -30,57 +35,25 @@ public class PlayerStats : MonoBehaviour
         {
             menu.SetActive(true);
             NegativeZone();
-            GameObject[] obstacles = GameObject.FindGameObjectsWithTag("Obstacle");
-            foreach (GameObject obstacle in obstacles)
-                Destroy(obstacle);
+            DestroyObstacles();
             gameObject.SetActive(false);
-            GameObject players = gameObject.transform.parent.gameObject;
+            GameObject players = transform.parent.gameObject;
             players.SetActive(false);
-            CurrentStats.ResetTime();
-            time.text = Convert(CurrentStats.Time);
+            MyTimer.ResetTime();
+            time.text = MyTimer.TimerText;
             
             playground.SetActive(false);
             hp = maxHp;
         }
     }
 
-    private byte[] intervals = { 10, 59, 59 };
-
-    private bool IsOverFlow()
-    {
-        bool over = false;
-        for (byte i = 0; i < intervals.Length; i++)
-        {
-            over = CurrentStats.Time[i] >= intervals[i] - 1;
-            if (!over)
-                break;
-        }
-        return over;
-    }
-
-    public string Convert(byte[] times)
-    {
-        return string.Format("{0:0}'{1:00}'{2:00}",
-          times[0], times[1], times[2]);
-    }
-
     public void FixedUpdate()
     {
-        current++;
-        if (current <= delay)
+        if (MyTimer.IsOverFlow())
             return;
-        current = 0;
-        if (IsOverFlow())
+        if (NoBeat)
             return;
-        for (int i = CurrentStats.Time.Length - 1; i >= 0; i--)
-        {
-            if (CurrentStats.Time[i] < intervals[i])
-            {
-                CurrentStats.Time[i]++;
-                break;
-            }
-            CurrentStats.Time[i] = 0;
-        }
-        time.text = Convert(CurrentStats.Time);
+        MyTimer.TimeBeat();
+        time.text = MyTimer.TimerText;
     }
 }

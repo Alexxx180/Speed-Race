@@ -1,4 +1,6 @@
-﻿using System;
+﻿using static System.Convert;
+using static CurrentStats;
+using static Timing;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,9 +8,8 @@ public class Scoring : MonoBehaviour
 {
     public Text score;
     public int scoreIncrement;
-    public int delay = 100;
-    public int current = 0;
-    private int _scoreValue => Convert.ToInt32(GetScore());
+    private int _scoreValue => ToInt32(GetScore());
+    private const int MaxValue = 999_999_999;
     
     public string GetScore()
     {
@@ -17,19 +18,16 @@ public class Scoring : MonoBehaviour
 
     public void SetScore()
     {
-        CurrentStats.Score = _scoreValue + scoreIncrement * CurrentStats.speedUp;
-        score.text = "" + CurrentStats.Score;
+        Score = _scoreValue + scoreIncrement * speedUp;
+        score.text = Score.ToString();
     }
 
     void FixedUpdate()
     {
-        if (_scoreValue >= 999_999_999)
+        if (_scoreValue >= MaxValue)
             return;
-        current++;
-        if (current > delay)
-        {
-            current = 0;
-            SetScore();
-        }
+        if (NoBeat)
+            return;
+        SetScore();
     }
 }

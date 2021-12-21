@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2243009483659292458}
   - component: {fileID: 2243009483659292456}
   - component: {fileID: 1115454771303579998}
-  - component: {fileID: -3960231371963653128}
+  - component: {fileID: 6468129785508920205}
   m_Layer: 0
   m_Name: SpeedUp
   m_TagString: Untagged
@@ -109,7 +109,7 @@ CircleCollider2D:
   m_Offset: {x: 2.5637817, y: -1.7956543}
   serializedVersion: 2
   m_Radius: 85
---- !u!114 &-3960231371963653128
+--- !u!114 &6468129785508920205
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -118,7 +118,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2243009483659292461}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bfac8999313d6694abdb53750f6945d1, type: 3}
+  m_Script: {fileID: 11500000, guid: 0816202f7076f2d4dae937fef1c4df19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bonus: SpeedUp

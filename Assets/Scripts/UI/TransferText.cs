@@ -3,11 +3,11 @@ using UnityEngine.UI;
 
 public class TransferText : MonoBehaviour
 {
-    public Text text;
+    public Text transfer;
     public InputField input;
 
     public void TransferDirect()
     {
-        text.text = input.text;
+        transfer.text = input.text;
     }
 }

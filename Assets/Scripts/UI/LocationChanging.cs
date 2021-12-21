@@ -10,28 +10,31 @@ public class LocationChanging : MonoBehaviour
     public DoubleList obstacles;
     public List<Sprite> sprites;
 
-    public int minTime = 2500;
-    public int maxTime = 5000;
+    private readonly int _minTime = 500;
+    private readonly int _maxTime = 1500;
 
     private int _currentSelection = 0;
-    public int _current = 0;
-    private int _delay = 3750;
+
+    private readonly TimeSystem _changeTime = new TimeSystem(0, 750);
+    
+    public void FixedUpdate()
+    {
+        if (_changeTime.FullTimeBeat())
+            return;
+        ChangeLocation();
+    }
 
     // Here we change location with random set
     // of time between range of two values
-    public void FixedUpdate()
+    private void ChangeLocation()
     {
-        _current++;
-        if (_current >= _delay)
-        {
-            _current = 0;
-            _delay = Random.Range(minTime, maxTime);
+        int delayRange = Random.Range(_minTime, _maxTime);
+        _changeTime.SetDelay(delayRange);
 
-            _currentSelection += 1;
-            _currentSelection %= sprites.Count;
+        _currentSelection += 1;
+        _currentSelection %= sprites.Count;
 
-            apperance.obstacles = obstacles.objects[_currentSelection].objects;
-            background.sprite = sprites[_currentSelection];
-        }
+        apperance.obstacles = obstacles.objects[_currentSelection].objects;
+        background.sprite = sprites[_currentSelection];
     }
 }

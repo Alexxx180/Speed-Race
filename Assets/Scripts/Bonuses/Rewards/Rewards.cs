@@ -16,9 +16,7 @@ public abstract class Rewards : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
-        {
             Reward();
-        }
     }
 
     public abstract void Reward();

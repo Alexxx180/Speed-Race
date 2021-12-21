@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2243009483659292456}
   - component: {fileID: 1115454771303579998}
   - component: {fileID: 2123735296866205408}
-  - component: {fileID: 4124245553057021421}
+  - component: {fileID: -3178942632448340102}
   m_Layer: 0
   m_Name: Shield
   m_TagString: Untagged
@@ -136,7 +136,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 149.40918, y: 71.14563}
   m_EdgeRadius: 0
---- !u!114 &4124245553057021421
+--- !u!114 &-3178942632448340102
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -145,9 +145,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2243009483659292461}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bddfc0151fc58754c9004e7db7d7de5d, type: 3}
+  m_Script: {fileID: 11500000, guid: 0816202f7076f2d4dae937fef1c4df19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bonus: Shield
+  bonus: Shields
   money: {fileID: 0}
   value: 1
